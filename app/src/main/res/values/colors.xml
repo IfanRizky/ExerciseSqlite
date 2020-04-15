@@ -3,8 +3,8 @@
     <color name="colorPrimary">#3F1A83</color>
     <color name="colorPrimaryDark">#3E2186</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="judul">#554B4D</color>
+    <color name="judul">#5C4D4E</color>
     <color name="text">#18070B</color>
     <color name="icon">#741A28</color>
-    <color name="button">#8B8383</color>
+    <color name="button">#D6D4D4</color>
 </resources>

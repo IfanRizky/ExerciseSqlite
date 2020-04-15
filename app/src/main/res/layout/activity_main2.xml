@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nama                    :"
+        android:textColor="@color/text"
         android:textSize="17dp" />
 
     <EditText
@@ -36,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/input_nama"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/text"/>
     </TableRow>
 
         <TableRow
@@ -48,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nomor Telepon   :"
+                android:textColor="@color/text"
                 android:textSize="17dp" />
 
             <EditText
@@ -55,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_tlp"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/text"/>
         </TableRow>
 
         <TableRow
@@ -67,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email                     :"
+                android:textColor="@color/text"
                 android:textSize="17dp" />
 
             <EditText
@@ -74,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_email"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/text"/>
         </TableRow>
 
         <TableRow
@@ -86,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alamat                  :"
+                android:textColor="@color/text"
                 android:textSize="17dp" />
 
             <EditText
@@ -93,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_alamat"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/text"/>
         </TableRow>
     </TableLayout>
     <Button

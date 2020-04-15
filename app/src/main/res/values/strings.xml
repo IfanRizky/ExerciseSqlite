@@ -1,3 +1,41 @@
 <resources>
-    <string name="app_name">ExerciseSqlite</string>
+    <string name="app_name">Exercise Sqlite</string>
+    <string name="judul">Daftar Kontak</string>
+
+    <string name="judul_add_data">Tambah Data</string>
+    <string name="nama">Nama</string>
+    <string name="input_nama">Masukkan Nama</string>
+    <string name="no_tlp">Nomor Telepon</string>
+    <string name="input_tlp">Masukkan Nomor Telepon</string>
+    <string name="email">Email</string>
+    <string name="input_email">Masukkan Email</string>
+    <string name="alamat">Alamat</string>
+    <string name="input_alamat">Masukkan Alamat</string>
+    <string name="btn_simpan">SIMPAN</string>
+
+    <string name="judul_profil">Profil</string>
+    <string name="nama_profil">Nama</string>
+    <string name="input_nama_profil">Masukkan Nama</string>
+    <string name="no_tlp_profil">Nomor Telepon</string>
+    <string name="input_tlp_profil">Masukkan Nomor Telepon</string>
+    <string name="email_profil">Email</string>
+    <string name="input_email_profil">Masukkan Email</string>
+    <string name="alamat_profil">Alamat</string>
+    <string name="input_alamat_profil">Masukkan Alamat</string>
+
+
+    <string name="edit">Edit</string>
+    <string name="hapus">Hapus</string>
+
+    <string name="judul_update">Update Data</string>
+    <string name="nama_update">Nama</string>
+    <string name="input_nama_update">Masukkan Nama</string>
+    <string name="no_tlp_update">Nomor Telepon</string>
+    <string name="input_tlp_update">Masukkan Nomor Telepon</string>
+    <string name="email_update">Email</string>
+    <string name="input_email_update">Masukkan Email</string>
+    <string name="alamat_update">Alamat</string>
+    <string name="input_alamat_update">Masukkan Alamat</string>
+    <string name="btn_batal">BATAL</string>
+    <string name="btn_ubah">UBAH DATA</string>
 </resources>

@@ -1,3 +1,5 @@
+package com.example.exercisesqlite;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,11 +14,12 @@ import java.util.HashMap;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "MyDBNAME.db";
-    public static final String TABLE_NAME = "daftarKontak";
-    public static final String NAMA = "nama";
-    public static final String NO_TELEPON = "nomorTelepon";
-    public static final String EMAIL = "email";
-    public static final String ALAMAT = "alamat";
+    public static final String MHS_TABLE_NAMA = "Kontak";
+    public static final String MHS_COLUMN_ID = "id";
+    public static final String MHS_COLUMN_NAMA = "nama";
+    public static final String MHS_COLUMN_TELEPON = "telepon";
+    public static final String MHS_COLUMN_EMAIL = "email";
+    public static final String MHS_COLUMN_ALAMAT = "alamat";
     private HashMap hp;
 
     public DBHelper(Context context) {
@@ -27,8 +30,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //TODO Auto-generated method stub
         db.execSQL(
-                "Create table daftarKontak" +
-                        "(nama string primary key, nomorTelepon text, email text, alamat text)"
+                "Create table Kontak" +
+                        "(id string primary key, nama text, telepon text, email text, alamat text)"
         );
     }
 
@@ -39,26 +42,27 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact (String nomorTelepon, String email, String alamat) {
+    public boolean insertContact (String nama, String telepon, String email, String alamat) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("nomorTelepon", nomorTelepon);
+        contentValues.put("nama",nama);
+        contentValues.put("telepon", telepon);
         contentValues.put("email",email);
         contentValues.put("alamat",alamat);
 
-        db.insert("daftarKontak", null, contentValues);
+        db.insert("Kontak", null, contentValues);
         return true;
     }
 
-    public Cursor getData(String nama) {
+    public Cursor getData(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from daftarKontak where nama="+nama+"", null);
+        Cursor res = db.rawQuery("select * from Kontak where id="+id+"", null);
         return res;
     }
 
     public int numberOfRows() {
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, MHS_TABLE_NAMA);
         return numRows;
     }
 
@@ -67,11 +71,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //hp = new Hashmap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from daftarKontak", null);
+        Cursor res = db.rawQuery("select * from Kontak", null);
         res.moveToFirst();
 
         while (res.isAfterLast() == false) {
-            array_list.add(res.getString(res.getColumnIndex(NAMA)));
+            array_list.add(res.getString(res.getColumnIndex(MHS_COLUMN_NAMA)));
             res.moveToNext();
         }
         return array_list;

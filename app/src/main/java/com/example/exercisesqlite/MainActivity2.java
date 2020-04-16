@@ -2,6 +2,7 @@ package com.example.exercisesqlite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 public class MainActivity2 extends AppCompatActivity {
+
+    private DBHelper mydb;
 
     String nama,
            alamat,
@@ -42,39 +45,53 @@ public class MainActivity2 extends AppCompatActivity {
         buttonSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                email = editEmail.getText().toString().trim();
-//                if (editNama.getText().toString().equals("") ||
-//                        editNo_telp.getText().toString().equals("") ||
-//                        editEmail.getText().toString().equals("") ||
-//                        editAlamat.getText().toString().equals("")) {
-//                    Toast.makeText(getApplicationContext(), "Data Harus Lengkap", Toast.LENGTH_SHORT).show();
-//                } else if (email.matches(emailPattern)) {
+                email = editEmail.getText().toString().trim();
+                if (editNama.getText().toString().equals("") ||
+                        editNo_telp.getText().toString().equals("") ||
+                        editEmail.getText().toString().equals("") ||
+                        editAlamat.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Data Harus Lengkap", Toast.LENGTH_LONG).show();
+
+                } else if (email.matches(emailPattern)) {
+                    mydb.insertContact(
+                            editNama.getText().toString(),
+                            editNo_telp.getText().toString(),
+                            editEmail.getText().toString(),
+                            editAlamat.getText().toString());
+                    Toast.makeText(getApplicationContext(),"Insert Data Berhasil", Toast.LENGTH_LONG).show();
+
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Format Email Salah", Toast.LENGTH_LONG).show();
+                }
 //
 //                }
 //            }
-                nama = editNama.getText().toString();
-                no_tlp = editNo_telp.getText().toString();
-                alamat = editAlamat.getText().toString();
-
-                if (nama.equals("") || (no_tlp.equals("123") || (alamat.equals("")))) {
-                    Toast.makeText(MainActivity2.this,
-                            "Data Harus Lengkap", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Data Tersimpan", Toast.LENGTH_SHORT).show();
-                }
+//                nama = editNama.getText().toString();
+//                no_tlp = editNo_telp.getText().toString();
+//                alamat = editAlamat.getText().toString();
+//
+//                if (nama.equals("") || (no_tlp.equals("123") || (alamat.equals("")))) {
+//                    Toast.makeText(MainActivity2.this,
+//                            "Data Harus Lengkap", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(getApplicationContext(),
+//                            "Data Tersimpan", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
 
-    private boolean validasiEmail(EditText editEmail) {
-        String emailInput = editEmail.getText().toString();
-
-        if(!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            return true;
-        } else {
-            Toast.makeText(this, "Format Email Salah", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
+//    private boolean validasiEmail(EditText editEmail) {
+//        String emailInput = editEmail.getText().toString();
+//
+//        if(!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+//            return true;
+//        } else {
+//            Toast.makeText(this, "Format Email Salah", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+//    }
 }
